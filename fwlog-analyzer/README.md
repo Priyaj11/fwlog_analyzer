@@ -1,17 +1,8 @@
 # fwlog — Firmware/RTOS Log Analyzer & Timing-Anomaly Detector
 
-> New here / on a Mac? Open **START_HERE_MAC.md** first — it walks you through
 > running this step by step.
 
-A command-line tool that ingests messy embedded-system serial (UART) logs,
-reconstructs the real-time task schedule, and automatically flags **timing
-anomalies** and **known fault signatures** — the kind of bug hunting an embedded
-engineer normally does by squinting at a scrolling terminal.
-
-It parses heterogeneous log formats, computes per-task period/jitter/execution
-statistics, applies a rate-monotonic schedulability check, runs robust
-statistical outlier detection on the timing series, and matches a catalog of
-fault signatures (watchdog resets, brown-outs, CRC bursts, task starvation).
+A command-line tool that ingests messy embedded-system serial (UART) logs, reconstructs the real-time task schedule, and automatically flags **timing anomalies** and **known fault signatures** — the kind of bug hunting an embedded engineer normally does by squinting at a scrolling terminal. It parses heterogeneous log formats, computes per-task period/jitter/execution statistics, applies a rate-monotonic schedulability check, runs robust statistical outlier detection on the timing series, and matches a catalog of fault signatures (watchdog resets, brown-outs, CRC bursts, task starvation).
 
 ```
 raw UART log ──▶ parser ──▶ Event stream ──┬──▶ timing analysis ──▶ schedulability
