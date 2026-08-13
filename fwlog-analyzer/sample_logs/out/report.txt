@@ -1,0 +1,26 @@
+====================================================================
+  FWLOG ANALYSIS REPORT
+====================================================================
+
+Lines: 3054  parsed: 3049  unparsed: 5  (99.8% parsed)
+
+-- TASK TIMING -----------------------------------------------------
+task           cycles  period(ms)  jitter(us)  exec p95(us)      U  misses  anom
+--------------------------------------------------------------------------------
+ctrl_loop         401      20.026       526.5        2834.0   0.14       2     7
+sensor_poll       801       9.992       268.6         901.0   0.08       0    20
+telemetry          81     100.450      2910.8        7293.0   0.06       0     0
+
+-- SCHEDULABILITY --------------------------------------------------
+Total CPU utilization U = 0.287 over 3 tasks
+Liu & Layland RM bound  = 0.780
+VERDICT: schedulable (passes sufficient LL utilization test).
+
+-- FAULT FINDINGS --------------------------------------------------
+[CRITICAL] Watchdog timeout / reset at t=4.850s (cause=WDT, last_task=ctrl_loop)
+           | [   4.850000] ERROR wdt: WATCHDOG TIMEOUT reset_cause=WDT last_task=ctrl_loop
+[ERROR   ] PMIC brownout at t=2.377s (vbat=2.93V) - check power rail decoupling / supply droop under load.
+           | [   2.376903] ERROR pmic: brownout detected vbat=2.93V thresh=3.00V
+[INFO    ] 9 total CRC failures observed.
+
+====================================================================

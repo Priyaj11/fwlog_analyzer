@@ -1,0 +1,4 @@
+# Core analysis needs NOTHING beyond the Python standard library.
+# These are only needed for the picture/plot feature and for running tests.
+matplotlib>=3.5
+pytest>=7
